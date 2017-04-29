@@ -1,17 +1,8 @@
 
-
-var name = "Justin Briones";
- var formattedName = HTMLheaderName.replace("%data%", name);
-
- var role = "Web Developer";
- var formattedRole = HTMLheaderRole.replace("%data%", role);
-
- $("#header").prepend(formattedRole);
- $("#header").prepend(formattedName);
-
-
 //bio object, use jquery to prepend to html elements assigned in helper.js
  var bio = {
+   "name": "Justin Briones",
+ 	"role": "Web Developer",
    "contactInfo" : {
      "mobile" : "909 - 618 - 7596",
      "email" : "JustBriones@gmail.com",
@@ -22,6 +13,11 @@ var name = "Justin Briones";
  };
 
 //store helper.js elements in a variable which will be prepended to html id's
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
  var github = HTMLgithub.replace("%data%", bio.contactInfo.github);
  $("#topContacts").prepend(github);
 
@@ -63,7 +59,7 @@ var work = {
   ]
 };
 
-
+//work display function
 function displayWork() {
 
 	if(work.jobs.length > 0) {
@@ -92,6 +88,41 @@ function displayWork() {
 
 displayWork();
 
+//Projects section
+//projects object
+var projects = {
+	"projects": [
+		{
+			"title": "Online Resume",
+			"datesWorked": "April 2017",
+			"description": "Created an online resume to demonstrate ability with HTML, CSS, javascript and jquery."
+		}
+	]
+};
+
+//projects display function
+projects.display = function() {
+	if(projects.projects.length > 0) {
+		for(i in projects.projects) {
+			$("#projects").append(HTMLprojectStart);
+
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
+			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].datesWorked);
+			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+
+			$(".project-entry:last").append(formattedProjectTitle);
+			$(".project-entry:last").append(formattedProjectDates);
+			$(".project-entry:last").append(formattedProjectDescription);
+			}
+
+
+		}
+	};
+
+
+projects.display();
+
+//Education Section
 //education object using JSON
 var education = {
   "schools" : [
@@ -100,18 +131,36 @@ var education = {
         "location" : "Fullerton",
         "degree" : "Bachelors",
         "major" : "Decision Science",
-        "graduationYear" : 2015
+        "url" : "https://www.fullerton.edu/",
+        "datesAttended" : "August 2013 - May 2015"
       },
       {
         "name" : "Fullerton College",
         "location" : "Fullerton",
-        "major" : "Business Administration"
+        "major" : "Business Administration",
+        "url" : "http://www.fullcoll.edu/",
+        "datesAttended" : "June 2010 - June 2013"
       }
 
   ]
 };
+//education display function
+education.display = function() {
+	if(education.schools.length > 0) {
+		for(i in education.schools) {
+			$("#education").append(HTMLschoolStart);
 
-//projects object using most comfortable method
-var projects = {
-  "resumeProject" : ""
-}
+			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
+			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].datesAttended);
+			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+
+			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+			$(".education-entry:last").append(formattedSchoolDates);
+			$(".education-entry:last").append(formattedSchoolLocation);
+			$(".education-entry:last").append(formattedSchoolMajor);
+		}
+  }
+};
+    education.display();
