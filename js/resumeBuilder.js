@@ -43,15 +43,22 @@ var work = {
     {
       "position" : "Client Support and Training Specialist",
       "employer" : "PriceSpider",
-      "yearsWorked" : "1 year",
+      "datesWorked" : "Nov 2016 - present",
       "location" : "Irvine",
-      "description" : "As a Client Support and Training Specialist at PriceSpider, I was tasked with working directly with Fortune 500 clients on technical issues that may arrise post implementation of our solution. This would sometimes include diving into the source code and using developer tools to make sure they have implemented our widget's successfully on their product pages, which typically involves looking into their HTML, CSS and javascript files."
+      "description" : "After I left Directive Consulting, I knew I wanted to be in tech. It also turned out that PriceSpider needed my help, so I saw it as a golden opportunity to be employed at a tech company while I continue to learn web development. As a Client Support and Training Specialist at PriceSpider, I was tasked with working directly with Fortune 500 clients on technical issues that may arrise post implementation of our solution. This would sometimes include diving into the source code and using developer tools to make sure they have implemented our widget's successfully on their product pages, which typically involves looking into their HTML, CSS and javascript files."
+    },
+    {
+      "position" : "SEO/SEM Manager",
+      "employer" : "Directive Consulting",
+      "datesWorked" : "July 2016 - Nov 2016",
+      "location" : "Irvine",
+      "description" : "I decided to leave PriceSpider to explore a different field and further my skills. At Directive Consulting, I was tasked with increasing SEO for our clients via keyword research, technical website audits and website modifications. It was short and sweet, but I decided to leave Directive Consulting after I realized I wanted to pursue a more technical role."
     }, {
-      "position" : "Product Support Specialist",
+      "position" : "Product Support Specialist and Client Support",
       "employer" : "PriceSpider",
-      "yearsWorked" : "9 months",
+      "datesWorked" : "July 2015 - July 2016",
       "location" : "Irvine",
-      "description" : "This was my first position while breaking into the tech industry. As a Product Support Specialist, I was tasked with creating regex's for multiple retailer websites and auditing our crawler logic. I also utilized software such as Fiddler and PureWPN to investigate and troubleshoot abnormal website behavior.  "
+      "description" : "This was my first position while breaking into the tech industry. As a Product Support Specialist, I was tasked with creating regular expressions for multiple retailer websites and auditing our crawler logic. I also utilized software such as Fiddler and PureWPN to investigate and troubleshoot abnormal website behavior. By March 2015, I was promoted to Client Support Specialist."
     }
   ]
 };
@@ -68,12 +75,15 @@ function displayWork() {
 			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].position);
 			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
       var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+      var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
 
 			var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
 
 			$(".work-entry:last").append(formattedEmployerWorkTitle);
 			$(".work-entry:last").append(formattedWorkLocation);
+      $(".work-entry:last").append(formattedDatesWorked);
       $(".work-entry:last").append(formattedWorkDescription);
+
 		}
 
 	}
