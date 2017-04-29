@@ -129,7 +129,7 @@ var education = {
       {
         "name" : "California State University, Fullerton",
         "location" : "Fullerton",
-        "degree" : "Bachelors",
+        "degree" : "Bachelors, Decision Science",
         "major" : "Decision Science",
         "url" : "https://www.fullerton.edu/",
         "datesAttended" : "August 2013 - May 2015"
@@ -139,7 +139,8 @@ var education = {
         "location" : "Fullerton",
         "major" : "Business Administration",
         "url" : "http://www.fullcoll.edu/",
-        "datesAttended" : "June 2010 - June 2013"
+        "datesAttended" : "June 2010 - June 2013",
+        "degree" : "N/A"
       }
 
   ]
