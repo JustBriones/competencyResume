@@ -44,12 +44,14 @@ var work = {
       "position" : "Client Support and Training Specialist",
       "employer" : "PriceSpider",
       "yearsWorked" : "1 year",
-      "location" : "Irvine"
+      "location" : "Irvine",
+      "description" : "As a Client Support and Training Specialist at PriceSpider, I was tasked with working directly with Fortune 500 clients on technical issues that may arrise post implementation of our solution. This would sometimes include diving into the source code and using developer tools to make sure they have implemented our widget's successfully on their product pages, which typically involves looking into their HTML, CSS and javascript files."
     }, {
       "position" : "Product Support Specialist",
       "employer" : "PriceSpider",
       "yearsWorked" : "9 months",
-      "location" : "Irvine"
+      "location" : "Irvine",
+      "description" : "This was my first position while breaking into the tech industry. As a Product Support Specialist, I was tasked with creating regex's for multiple retailer websites and auditing our crawler logic. I also utilized software such as Fiddler and PureWPN to investigate and troubleshoot abnormal website behavior.  "
     }
   ]
 };
@@ -65,11 +67,13 @@ function displayWork() {
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
 			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].position);
 			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+      var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 
 			var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
 
 			$(".work-entry:last").append(formattedEmployerWorkTitle);
 			$(".work-entry:last").append(formattedWorkLocation);
+      $(".work-entry:last").append(formattedWorkDescription);
 		}
 
 	}
